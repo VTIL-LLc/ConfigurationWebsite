@@ -1,0 +1,58 @@
+@model Roblox.ConfigurationWebsite.ViewModels.Configuration.ConfigListViewModel
+
+@section scripts {
+    @Scripts.Render("~/bundles/config")
+    @Styles.Render("~/bundles/config-styles")
+}
+
+@{
+    ViewBag.Title = "Settings Search";
+}
+
+@Html.Partial("~/Views/Config/GroupNamesArrayScript.cshtml", Model.ConfigGroups)
+
+<div id="messageDiv" class="alert alert-success"><span id="messageDivText"></span></div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        @ViewBag.Title <button id="CreateNewSettingButton" class="btn btn-default btn-xs">Create Setting</button>
+        <div class="pull-right">@ViewBag.CurrentTimestamp</div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Search", "Settings", FormMethod.Post, new { id = "searchForm" }))
+        {
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="form-group select2-outer">
+                    <label for="GroupName">Group Name</label>
+                    <button type="button" id="resetSelectionButton" class="btn btn-default btn-xs">X</button>
+                    @Html.DropDownList("GroupName", Model.ConfigGroupSelectList)
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label for="NamePattern">Name Pattern</label>
+                    <button type="button" id="ClearButton" class="btn btn-default btn-xs">X</button>
+                    @Html.TextBox("NamePattern", null, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="form-group">
+                    
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label for="ValuePattern">Value Pattern</label>
+                    @Html.TextBox("ValuePattern", null, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div id="settingsResultsDiv" class="resultsContainer"></div>
+
+@Html.Partial("Dialog")
