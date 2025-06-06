@@ -5,6 +5,10 @@ namespace Roblox.ConfigurationWebsite
 {
     public class BundleConfig
     {
+        /// <summary>
+        /// Registers JavaScript and CSS Bundles.
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(

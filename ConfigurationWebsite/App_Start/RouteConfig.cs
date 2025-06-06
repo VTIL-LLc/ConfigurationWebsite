@@ -9,6 +9,10 @@ namespace Roblox.ConfigurationWebsite
 {
     public class RouteConfig
     {
+        /// <summary>
+        /// Registers Routes.
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

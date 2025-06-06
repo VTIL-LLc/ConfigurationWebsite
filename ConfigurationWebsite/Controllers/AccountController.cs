@@ -12,6 +12,14 @@ namespace Roblox.ConfigurationWebsite.Controllers
     [RoutePrefix("")]
     public class AccountController : Controller
     {
+        /// <summary>
+        /// Shows an Error.
+        /// </summary>
+        /// <param name="errorMessage"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns>
+        /// <see cref="ActionResult"/>
+        /// </returns>
         private ActionResult ShowError(string errorMessage, string returnUrl) => RedirectToAction("Login", new { ReturnUrl = returnUrl, ErrorMessage = errorMessage });
 
         [Route("Logout")]
@@ -65,6 +73,8 @@ namespace Roblox.ConfigurationWebsite.Controllers
 
             userName = GetUsername(userName);
 
+            // Yes I know this is bad, BUT as i said this is incomplete.
+            // This will get removed, Hopefully :tm:.
             if (userName == "Administrator" && password == "CB6A676E-FB46-499C-9032-8E012DE5DABB")
             {
 
@@ -78,6 +88,13 @@ namespace Roblox.ConfigurationWebsite.Controllers
             return ShowError("Invalid username or password.", returnUrl);
         }
 
+        /// <summary>
+        /// Gets the username.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>
+        /// <see cref="System.String"/>
+        /// </returns>
         private string GetUsername(string userName)
         {
             if (string.IsNullOrEmpty(userName)) return null;
@@ -89,12 +106,14 @@ namespace Roblox.ConfigurationWebsite.Controllers
             return split[1];
         }
 
+        /// <summary>
+        /// NOTE: if the user is already logged in (e.g. under a different user account)
+        /// then this will NOT reset the identity information.  Be aware of this if
+        /// you allow already-logged in users to "re-login" as different accounts 
+        /// without first logging out.
+        /// </summary>
         private void AuthenticateThisRequest()
         {
-            //NOTE:  if the user is already logged in (e.g. under a different user account)
-            //       then this will NOT reset the identity information.  Be aware of this if
-            //       you allow already-logged in users to "re-login" as different accounts 
-            //       without first logging out.
             if (HttpContext.User.Identity.IsAuthenticated) return;
 
             var name = FormsAuthentication.FormsCookieName;

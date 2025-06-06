@@ -4,6 +4,15 @@ namespace Roblox.ConfigurationWebsite
 {
     public static class HtmlUtility
     {
+        /// <summary>
+        /// Checks if control = routeControl and action = routeAction.
+        /// </summary>
+        /// <param name="html"></param>
+        /// <param name="control"></param>
+        /// <param name="action"></param>
+        /// <returns>
+        /// <see cref="System.String"/>
+        /// </returns>
         public static string IsActive(this HtmlHelper html,
                                   string control,
                                   string action)
@@ -20,6 +29,14 @@ namespace Roblox.ConfigurationWebsite
             return returnActive ? "active" : "";
         }
 
+        /// <summary>
+        /// Checks if control = routeControl.
+        /// </summary>
+        /// <param name="html"></param>
+        /// <param name="control"></param>
+        /// <returns>
+        /// <see cref="System.String"/>
+        /// </returns>
         public static string IsActive(this HtmlHelper html,
                                   string control)
         {
