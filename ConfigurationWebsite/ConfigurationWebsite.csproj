@@ -251,12 +251,12 @@
     <Folder Include="ViewModels\Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Assemblies\Configuration\src\configuration\Roblox.Configuration.csproj">
-      <Project>{6316d070-7193-4f41-9b70-f13d6875563f}</Project>
+    <ProjectReference Include="..\Assemblies\Configuration\src\configuration\Roblox.Configuration.csproj">
+      <Project>{87d6d1b2-8a6c-30a0-7b05-1c6c99455e4e}</Project>
       <Name>Roblox.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Assemblies\event-log\src\Roblox.EventLog.csproj">
-      <Project>{f8933123-e523-f05a-b5a4-a147ab2406b5}</Project>
+    <ProjectReference Include="..\Assemblies\event-log\src\Roblox.EventLog.csproj">
+      <Project>{7195b970-b201-570a-4fe0-f3224df88765}</Project>
       <Name>Roblox.EventLog</Name>
     </ProjectReference>
   </ItemGroup>
