@@ -17,13 +17,6 @@ namespace Roblox.ConfigurationWebsite
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            Logger.Singleton.Debug(@"
-Started
-AreaRegistration, RouteConfig, BundleConfig
-
-Routing to public facing!
-");
         }
     }
 }
